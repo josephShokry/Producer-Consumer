@@ -5,6 +5,7 @@ import com.producer_consumer.models.Element;
 import com.producer_consumer.models.Machine;
 import com.producer_consumer.models.Product;
 import com.producer_consumer.models.Queue;
+import com.producer_consumer.snapshot.Snapshot;
 
 import java.util.HashMap;
 import java.util.List;
@@ -46,9 +47,13 @@ public class SimulatorService {
     // start simulation
     public void runSimulation() throws InterruptedException {
         while(productsNumberInStock-- > 0){
-            TimeUnit.MICROSECONDS.sleep(200);//(int)(Math.random()*(10)+1));
+            TimeUnit.SECONDS.sleep((int)(Math.random()*(10)+1));
             ((Queue)elements.get("0")).addToProducts(new Product());
         }
-        System.out.println("end");
+    }
+
+    // snapshot handling
+    public Snapshot makeSnapshot(){
+        return new Snapshot(this.elements, this.productsNumberInStock, this.rootGraph);
     }
 }
