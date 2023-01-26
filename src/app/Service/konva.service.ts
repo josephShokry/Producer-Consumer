@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { MatLine } from '@angular/material/core';
 import Konva from "konva";
 
 @Injectable({
@@ -12,14 +13,15 @@ export class KonvaService {
   strokeColor: string = 'green'
 
   strokeWidth: string = '3';
-
+  
   x1: any = window.innerWidth / 4
   y1: any = window.innerHeight / 4
   x2: any = window.innerWidth / 2
   y2: any = window.innerHeight / 2
 
   machine(){
-    let rectangle = new Konva.Group({
+    let circle = new Konva.Group({
+      id: this.myId,
         x: 25, 
         y: 25, 
         width: 130,
@@ -27,7 +29,7 @@ export class KonvaService {
         draggable: true,
     }); 
 
-    rectangle.add(new Konva.Circle({
+    circle.add(new Konva.Circle({
         width: 130,
         height: 25,
         radius: 40,
@@ -35,31 +37,35 @@ export class KonvaService {
         stroke: 'blue'
     }));
 
-    rectangle.add(new Konva.Text({
-        text:'M',
-        fontSize: 18,
-        fontFamily: 'Calibri',
-        fill: '#000',
-        // width: 130,
-        // padding: 5,
-        align: 'center',
-        x: -10,
-        y: -10
-      }));
+    circle.add(new Konva.Text({
+      text:'M',
+      fontSize: 18,
+      fontFamily: 'Calibri',
+      fill: '#000',
+      // width: 130,
+      // padding: 5,
+      align: 'center',
+      name: "machine",
+      x: -10,
+      y: -10
+    }));
       this.myId = (Number(this.myId) + 1).toString();
-      return new Konva.Layer().add(rectangle)
+      return circle
   }
-  
+
   queue(){
-    let rectangle = new Konva.Group({
+    let circle = new Konva.Group({
+      id: this.myId,
         x: 25, 
         y: 25, 
         width: 130,
         height: 25,
         draggable: true,
+        to:"test",
+        from:"test2"
     }); 
 
-    rectangle.add(new Konva.Circle({
+    circle.add(new Konva.Circle({
         width: 130,
         height: 25,
         radius: 40,
@@ -67,18 +73,38 @@ export class KonvaService {
         stroke: 'green'
     }));
 
-    rectangle.add(new Konva.Text({
-        text:'Q' + this.myId,
-        fontSize: 18,
-        fontFamily: 'Calibri',
-        fill: '#000',
-        // width: 130,
-        // padding: 5,
-        align: 'center',
-        x: -10,
-        y: -10
+    circle.add(new Konva.Text({
+      text:'Q' + this.myId,
+      fontSize: 18,
+      fontFamily: 'Calibri',
+      fill: '#000',
+      // width: 130,
+      // padding: 5,
+      align: 'center',
+      name:"queue",
+      x: -10,
+      y: -10
     }));
+
+    let arr;
+
+    // circle.on('mouseup', (e: any) => {
+    //   if(this.isLineMode){
+    //   }
+    // })
     this.myId = (Number(this.myId) + 1).toString();
-    return new Konva.Layer().add(rectangle)
+    // let temp2 = new Konva.Layer();
+    // temp2.setAttr("id", circle.id);
+    // temp2.on('mouesdown', (e: any) => {
+    //   if(this.isLineMode){
+    //     this.firstSelectedObject = circle.getAttr("id");
+    //     console.log("first object selected ", this.firstSelectedObject);
+    //   }
+    // })
+    // temp2.add(circle);
+    let myLayer = new Konva.Layer().add(circle);
+    return circle;
   }
+
+
 }
