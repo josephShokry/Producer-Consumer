@@ -3,6 +3,7 @@ import models.Element;
 import models.Machine;
 import models.Product;
 import models.Queue;
+import snapshot.Snapshot;
 
 import java.util.HashMap;
 import java.util.List;
@@ -17,7 +18,7 @@ public class SimulatorService {
         this.rootGraph = rootGraph;
     }
 
-    //build the elemnets
+    // build the elements
     public void buildElements(){
         for(Dto dto: rootGraph){
             elements.put(dto.id,objectFactory.getObject(dto));
@@ -45,5 +46,10 @@ public class SimulatorService {
             TimeUnit.SECONDS.sleep((int)(Math.random()*(10)+1));
             ((Queue)elements.get("0")).addToProducts(new Product());
         }
+    }
+
+    // snapshot handling
+    public Snapshot makeSnapshot(){
+        return new Snapshot(this.elements, this.productsNumberInStock, this.rootGraph);
     }
 }

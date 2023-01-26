@@ -2,11 +2,13 @@ package controllers;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
 @RestController
+@RequestMapping
 public class systemControllers {
     @PostMapping("/start_simulate")
     public void startSimulation(){
@@ -16,8 +18,8 @@ public class systemControllers {
     public void resimulate(){
 
     }
-    @GetMapping("/get_changes")
-    public List<Object> getChanges(){
-
-    }
+//    @GetMapping("/get_changes")
+//    public List<Object> getChanges(){
+//
+//    }
 }
