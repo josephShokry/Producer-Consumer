@@ -11,4 +11,5 @@ public class Dto {
     public String text;
     public List<String> machineToQueue;// all ids of machine that connected as input to that queue
     public List<String> QueueToMachine;// all ids of machine that connected as output to that queue
+    public List<Dto> rootGraph;
 }
