@@ -25,4 +25,15 @@ public class Machine extends Element{
         inQueues.add(queue);
     }
 
+    public void machineNotifyFree(){
+        for(Queue q: inQueues) {
+            q.addFreeMachine(this.getId());
+        }
+    }
+
+    public void machineNotifyBusy(){
+        for(Queue q: inQueues) {
+            q.removeBusyMachine(this.getId());
+        }
+    }
 }
