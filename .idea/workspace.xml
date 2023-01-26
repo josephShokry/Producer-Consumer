@@ -4,18 +4,24 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0e4095e8-06ec-469f-9b4d-05c0da4a632a" name="Changes" comment="" />
+    <list default="true" id="ced9700f-bd94-4a69-b3ae-fd11e3bece62" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/checkstyle-idea.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jpa-buddy.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/DTOs/Dto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DTOs/Dto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/models/Element.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/Element.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
-  </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="Class" />
-      </list>
-    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -26,13 +32,11 @@
   <component name="MavenImportPreferences">
     <option name="generalSettings">
       <MavenGeneralSettings>
-        <option name="mavenHome" value="Use Maven wrapper" />
         <option name="useMavenConfig" value="true" />
       </MavenGeneralSettings>
     </option>
   </component>
-  <component name="ProjectId" id="2KrpspMlTR9UyMdJz1w41AOiqfB" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectId" id="2KsEkgBMr2nOdvwONSj0XDyRgUA" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -41,18 +45,46 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "D:/colleage/5th semester/programing2/my work/lab 5/backend/Producer-Consumer"
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "E:/Education/college/First Semester/Programming 2/03. Labs/Lab 05/Back-end/Producer-Consumer",
+    "nodejs_package_manager_path": "npm",
+    "spring.configuration.checksum": "4c44b0011c9c00f486a2d65f1293de8f"
   }
 }]]></component>
+  <component name="RunManager">
+    <configuration name="ProducerConsumerApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="producer_consumer" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.producer_consumer.ProducerConsumerApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="0e4095e8-06ec-469f-9b4d-05c0da4a632a" name="Changes" comment="" />
-      <created>1674742769151</created>
+      <changelist id="ced9700f-bd94-4a69-b3ae-fd11e3bece62" name="Changes" comment="" />
+      <created>1674755038539</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1674742769151</updated>
+      <updated>1674755038539</updated>
+      <workItem from="1674755040010" duration="358000" />
+      <workItem from="1674755510784" duration="1712000" />
     </task>
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>
