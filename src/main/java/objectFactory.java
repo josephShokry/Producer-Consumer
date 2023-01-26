@@ -1,8 +1,9 @@
 import DTOs.Dto;
 import models.Element;
+import models.Machine;
 
 public class objectFactory {
-    public Element getObject(Dto dto){
+    public static Element getObject(Dto dto){
         switch (dto.type){
             case "machine":
                 //machineBuilder = MachineBuilder(dto)
