@@ -1,4 +1,4 @@
-package DTOs;
+package com.producer_consumer.DTOs;
 
 import java.util.List;
 
@@ -12,4 +12,5 @@ public class Dto {
     public List<String> machineToQueue;// all ids of machine that connected as input to that queue
     public List<String> QueueToMachine;// all ids of machine that connected as output to that queue
     public List<Dto> rootGraph;
+    public int productsNumberInStock;
 }

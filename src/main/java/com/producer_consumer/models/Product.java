@@ -1,4 +1,4 @@
-package models;
+package com.producer_consumer.models;
 
 public class Product {
     private String color;

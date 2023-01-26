@@ -1,10 +1,10 @@
-package models;
+package com.producer_consumer.models;
 
-import DTOs.Dto;
-import lombok.AllArgsConstructor;
+import com.producer_consumer.DTOs.Dto;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -12,18 +12,17 @@ import java.util.List;
 @Getter
 public class Machine extends Element implements Runnable{
     private int operatingTime;
-    private List<Queue> inQueues;
-    private models.Queue outQueue;
+    private List<Queue> inQueues = new ArrayList<>();
+    private Queue outQueue;
     private Product product = null;
 
     public Machine(Dto dto, int operatingTime) {
         super(dto);
         this.operatingTime = operatingTime;
-        Thread thread = new Thread();
-        thread.start();
+
     }
 
-    public void addToInQueues(models.Queue queue){
+    public void addToInQueues(Queue queue){
         inQueues.add(queue);
     }
 
@@ -36,6 +35,8 @@ public class Machine extends Element implements Runnable{
     public synchronized void setProduct(Product product) {
         this.product = product;
         machineNotifyBusy();
+        Thread thread = new Thread(this::run);
+        thread.start();
     }
 
     public void machineNotifyBusy(){
@@ -46,14 +47,13 @@ public class Machine extends Element implements Runnable{
 
     @Override
     public void run() {
-        if(product!=null){
-            try {
-                Thread.sleep(operatingTime*1000);
-            } catch (InterruptedException e) {
-                throw new RuntimeException(e);
-            }
-            product = null;
-            machineNotifyFree();
+        try {
+            Thread.sleep(operatingTime*1000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
         }
+        outQueue.addToProducts(product);
+        product = null;
+        machineNotifyFree();
     }
 }

@@ -1,15 +1,13 @@
-package controllers;
+package com.producer_consumer.controllers;
 
-import DTOs.Dto;
-import org.apache.catalina.LifecycleState;
+import com.producer_consumer.DTOs.Dto;
 
-import javax.xml.stream.events.DTD;
 import java.util.List;
 
 public class SimulatorFacad {
     private SimulatorService simulatorService;
-    public SimulatorFacad(List<Dto> dto) {
-        simulatorService = new SimulatorService(dto);
+    public SimulatorFacad(List<Dto> dto , int productsNumberInStock) {
+        simulatorService = new SimulatorService(dto, productsNumberInStock);
     }
     public void startSimulation() throws InterruptedException {
         simulatorService.buildElements();

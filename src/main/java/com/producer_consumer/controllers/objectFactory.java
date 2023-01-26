@@ -1,7 +1,9 @@
-import DTOs.Dto;
-import models.Element;
-import models.Machine;
-import models.Queue;
+package com.producer_consumer.controllers;
+
+import com.producer_consumer.DTOs.Dto;
+import com.producer_consumer.models.Element;
+import com.producer_consumer.models.Machine;
+import com.producer_consumer.models.Queue;
 
 public class objectFactory {
     public static Element getObject(Dto dto){
@@ -9,15 +11,13 @@ public class objectFactory {
             case "machine":
                 //machineBuilder = MachineBuilder(dto)
                 //return machineBuilder.build()
-                new Machine(dto,(int)(Math.random()*(10)+1));
-                break;
+                return new Machine(dto,1);//(int)(Math.random()*(10)+1));
+
             case "queue":
                 //queueBuilder = queueBuilder(dto)
                 //return queueBuilder.build()
-                new Queue(dto);
-                break;
+                return new Queue(dto);
             default: return null;
         }
-        return null;
     }
 }

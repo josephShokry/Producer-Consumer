@@ -1,6 +1,6 @@
-package models;
+package com.producer_consumer.models;
 
-import DTOs.Dto;
+import com.producer_consumer.DTOs.Dto;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
