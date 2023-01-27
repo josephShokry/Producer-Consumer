@@ -40,4 +40,9 @@ public class systemControllers {
         dtoo.rootGraph = dtos;
         return dtoo;
     }
+    @PostMapping("/add_product")
+    public void addProduct(){
+        SimulatorService simulatorService = SimulatorService.getInstance();
+        simulatorService.addProduct();
+    }
 }

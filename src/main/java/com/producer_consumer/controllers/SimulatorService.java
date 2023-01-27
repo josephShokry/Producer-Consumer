@@ -35,6 +35,9 @@ public class SimulatorService {
         }
         return simulatorService;
     }
+    public void addProduct(){
+        this.productsNumberInStock++;
+    }
 
     //build the elements
     public void buildElements(){
