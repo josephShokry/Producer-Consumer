@@ -65,4 +65,12 @@ public class Queue extends Element implements Runnable{
         }
         System.out.println(thread + " has terminated");
     }
+
+    @Override
+    public String toString() {
+        return "Queue{" +
+                "products=" + products +
+                ", freeMachines=" + freeMachines +
+                '}';
+    }
 }

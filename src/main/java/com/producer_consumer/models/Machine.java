@@ -60,4 +60,11 @@ public class Machine extends Element implements Runnable{
         product = null;
         machineNotifyFree();
     }
+
+    @Override
+    public String toString() {
+        return "Machine{" +
+                "product=" + product +
+                '}';
+    }
 }
