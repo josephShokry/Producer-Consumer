@@ -26,13 +26,13 @@ public class CareTaker {
         return snapshots.get(index);
     }
     public Snapshot makeSnapshot(){
-        System.out.println("##########################################################");
-        System.out.println(SimulatorService.getInstance().getElements().get("0").toString());
-        System.out.println(SimulatorService.getInstance().getElements().get("m1").toString());
-        System.out.println(SimulatorService.getInstance().getElements().get("1").toString());
-        System.out.println(SimulatorService.getInstance().getElements().get("m2").toString());
-        System.out.println(SimulatorService.getInstance().getElements().get("100").toString());
-        System.out.println("##########################################################");
+//        System.out.println("##########################################################");
+//        System.out.println(SimulatorService.getInstance().getElements().get("0").toString());
+//        System.out.println(SimulatorService.getInstance().getElements().get("m1").toString());
+//        System.out.println(SimulatorService.getInstance().getElements().get("1").toString());
+//        System.out.println(SimulatorService.getInstance().getElements().get("m2").toString());
+//        System.out.println(SimulatorService.getInstance().getElements().get("100").toString());
+//        System.out.println("##########################################################");
         return new Snapshot(
                 SimulatorService.getInstance().getElements(),
                 SimulatorService.getInstance().getProductsNumberInStock(),

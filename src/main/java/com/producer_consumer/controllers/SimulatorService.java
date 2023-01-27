@@ -50,7 +50,7 @@ public class SimulatorService {
                 for(String machineId : dto.machineToQueue){
                     ((Machine)elements.get(machineId)).setOutQueue((Queue) elements.get(dto.id));
                 }
-                for(String machineId : dto.QueueToMachine){
+                for(String machineId : dto.queueToMachine){
                     ((Machine)elements.get(machineId)).addToInQueues((Queue) elements.get(dto.id));
                     ((Queue)elements.get(dto.id)).addToOutMachines((Machine) elements.get(machineId));
                     ((Queue)elements.get(dto.id)).addToFreeMachines((Machine) elements.get(machineId));

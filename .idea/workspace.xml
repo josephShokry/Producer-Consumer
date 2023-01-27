@@ -5,9 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ced9700f-bd94-4a69-b3ae-fd11e3bece62" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/producer_consumer/models/Machine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/producer_consumer/models/Machine.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/producer_consumer/models/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/producer_consumer/models/Product.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/producer_consumer/DTOs/Dto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/producer_consumer/DTOs/Dto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/producer_consumer/ProducerConsumerApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/producer_consumer/ProducerConsumerApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/producer_consumer/controllers/SimulatorService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/producer_consumer/controllers/SimulatorService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/producer_consumer/controllers/systemControllers.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/producer_consumer/controllers/systemControllers.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/producer_consumer/snapshot/CareTaker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/producer_consumer/snapshot/CareTaker.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -107,20 +109,6 @@
     </option>
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/producer_consumer/controllers/SimulatorService.java</url>
-          <line>72</line>
-          <option name="timeStamp" value="7" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/producer_consumer/controllers/SimulatorService.java</url>
-          <line>63</line>
-          <option name="timeStamp" value="10" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
     <watches-manager>
       <configuration name="Application">
         <watch expression="((HashMap.Node)((HashMap)((SimulatorService)((SimulatorFacad)this).simulatorService).elements).entrySet().toArray()[1]).getValue()" language="JAVA" custom="com.producer_consumer.controllers.SimulatorService,java.util.HashMap.Node,java.util.HashMap,com.producer_consumer.controllers.SimulatorFacad" />

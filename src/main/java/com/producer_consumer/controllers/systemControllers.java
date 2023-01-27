@@ -26,6 +26,7 @@ public class systemControllers {
 //    }
     @GetMapping("/get_changes")
     public Dto getChanges(){
+        System.out.println("Get changes called");
         SimulatorService simulatorService = SimulatorService.getInstance();
         List<Dto> dtos = new ArrayList<>();
         for(Map.Entry<String, Element> entry : simulatorService.getElements().entrySet()){
