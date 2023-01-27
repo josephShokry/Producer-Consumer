@@ -1,6 +1,7 @@
 package com.producer_consumer.models;
 
 import com.producer_consumer.DTOs.Dto;
+import com.producer_consumer.snapshot.CareTaker;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -27,16 +28,19 @@ public class Machine extends Element implements Runnable{
     }
 
     public void machineNotifyFree(){
+        CareTaker.getInstance().addSnapshot();
         for(Queue q: inQueues) {
             q.addFreeMachine(this.getId());
         }
     }
 
     public synchronized void setProduct(Product product) {
+        CareTaker.getInstance().addSnapshot();
         this.product = product;
         machineNotifyBusy();
         Thread thread = new Thread(this::run);
         thread.start();
+        CareTaker.getInstance().addSnapshot();
     }
 
     public void machineNotifyBusy(){

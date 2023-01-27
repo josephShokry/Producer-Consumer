@@ -1,6 +1,7 @@
 package com.producer_consumer.models;
 
 import com.producer_consumer.DTOs.Dto;
+import com.producer_consumer.snapshot.CareTaker;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -55,9 +56,11 @@ public class Queue extends Element implements Runnable{
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }
-            if (!freeMachines.isEmpty()) {//!(freeMachines.isEmpty() || products.isEmpty())
+            if (!freeMachines.isEmpty()) {
+                CareTaker.getInstance().addSnapshot();
                 freeMachines.entrySet().iterator().next().getValue().setProduct(products.get(0));
                 products.remove(0);
+                CareTaker.getInstance().addSnapshot();
             }
         }
         System.out.println(thread + " has terminated");

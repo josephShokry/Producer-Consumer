@@ -6,8 +6,11 @@ import java.util.List;
 
 public class SimulatorFacad {
     private SimulatorService simulatorService;
-    public SimulatorFacad(List<Dto> dto , int productsNumberInStock) {
-        simulatorService = new SimulatorService(dto, productsNumberInStock);
+    public SimulatorFacad(List<Dto> dtos , int productsNumberInStock) {
+        simulatorService = SimulatorService.getInstance();
+        simulatorService.setRootGraph(dtos);
+        simulatorService.setProductsNumberInStock(productsNumberInStock);
+//        simulatorService = new SimulatorService(dtos, productsNumberInStock);
     }
     public void startSimulation() throws InterruptedException {
         simulatorService.buildElements();
