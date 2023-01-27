@@ -23,7 +23,7 @@ public class Element {
         this.id = dto.id;
         this.x = dto.x;
         this.y = dto.y;
-        this.color = Double.toString(Math.random() * 0x1000000);
+        this.color = "grey";
         this.text = dto.text;
 
     }
