@@ -2,10 +2,7 @@ package com.producer_consumer.controllers;
 
 import com.producer_consumer.DTOs.Dto;
 import com.producer_consumer.models.Element;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -40,7 +37,7 @@ public class systemControllers {
         dtoo.rootGraph = dtos;
         return dtoo;
     }
-    @PostMapping("/add_product")
+    @PutMapping("/add_product")
     public void addProduct(){
         SimulatorService simulatorService = SimulatorService.getInstance();
         simulatorService.addProduct();

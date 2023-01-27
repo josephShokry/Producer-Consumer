@@ -65,19 +65,23 @@ public class SimulatorService {
     // start simulation
     public void runSimulation() throws InterruptedException {
         int allCounts = productsNumberInStock;
-        while(productsNumberInStock-- > 0){
+        while(true){
             int min = 1;
             int max = 10;
             int randomtime = (int)Math.floor(Math.random() *(max - min + 1) + min);
             TimeUnit.SECONDS.sleep(randomtime);
-            ((Queue)elements.get("0")).addToProducts(new Product());
+            if(productsNumberInStock > 0){
+                ((Queue) elements.get("0")).addToProducts(new Product());
+                productsNumberInStock--;
+            }
+
             CareTaker.getInstance().addSnapshot();
         }
-        while(((Queue)elements.get("100")).getProducts().size() != allCounts){
-            Thread.sleep(1000);
-        }
-        CareTaker.getInstance().addSnapshot();
-        System.out.println("end");
+//        while(((Queue)elements.get("100")).getProducts().size() != allCounts){
+//            Thread.sleep(1000);
+//        }
+//        CareTaker.getInstance().addSnapshot();
+//        System.out.println("end");
     }
 
     // snapshot handling
