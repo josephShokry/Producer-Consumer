@@ -22,10 +22,13 @@ export class KonvaService {
   machine(){
     let circle = new Konva.Group({
       id: this.myId,
-        x: 25, 
-        y: 25, 
+        x: 700, 
+        y: 300, 
         width: 130,
         height: 25,
+        name: "machine",
+        in: [],
+        out: [],
         draggable: true,
     }); 
 
@@ -33,8 +36,8 @@ export class KonvaService {
         width: 130,
         height: 25,
         radius: 40,
-        fill: 'grey',
-        stroke: 'blue'
+        fill: '#FFFF00',
+        stroke: 'red'
     }));
 
     circle.add(new Konva.Text({
@@ -45,7 +48,6 @@ export class KonvaService {
       // width: 130,
       // padding: 5,
       align: 'center',
-      name: "machine",
       x: -10,
       y: -10
     }));
@@ -56,11 +58,12 @@ export class KonvaService {
   queue(){
     let circle = new Konva.Group({
       id: this.myId,
-        x: 25, 
-        y: 25, 
+        x: 700, 
+        y: 500, 
         width: 130,
         height: 25,
         draggable: true,
+        name:"queue",
         in:[],
         out:[],
     }); 
@@ -69,8 +72,8 @@ export class KonvaService {
         width: 130,
         height: 25,
         radius: 40,
-        fill: 'lightblue',
-        stroke: 'green'
+        fill: '#E5E0FF',
+        stroke: '#7286D3'
     }));
 
     circle.add(new Konva.Text({
@@ -81,7 +84,6 @@ export class KonvaService {
       // width: 130,
       // padding: 5,
       align: 'center',
-      name:"queue",
       x: -10,
       y: -10
     }));

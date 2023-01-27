@@ -1,16 +1,21 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import Konva from "konva";
 import { Stage } from 'konva/lib/Stage';
 import { Layer } from 'konva/lib/Layer';
 import { Transformer } from 'konva/lib/shapes/Transformer';
 import { KonvaService } from '../Service/konva.service';
+import { ControllerService } from '../Service/controller.service';
+import { AdapterService } from '../Service/adapter.service';
+import {Subscription, switchMap, timer} from 'rxjs';  
+import { Group } from 'konva/lib/Group';
+import { Dto } from '../Service/dto';
 
 @Component({
   selector: 'app-simulation-space',
   templateUrl: './simulation-space.component.html',
   styleUrls: ['./simulation-space.component.css']
 })
-export class SimulationSpaceComponent implements OnInit{
+export class SimulationSpaceComponent implements OnInit, OnDestroy{
   stage!: Stage;
   layer!: Layer;
   transformer!: Transformer;
@@ -22,10 +27,15 @@ export class SimulationSpaceComponent implements OnInit{
   myArrow!:any;
   targets!:any;
   connectors!: any;
-  shapes: Map<string, any> = new Map([
-  
-  ]);
-  constructor(private konva: KonvaService){}
+  shapes: Map<string, any> = new Map([ ]);
+  subscription!: Subscription;
+  productsInQueue: Map<string, number> = new Map([]);
+  numberOfProducts: number = 0;
+  columnsToDisplay = ['queueName', 'numberOfProducts']
+  dtoStorage: Dto[] = [];
+  replayStarted = false;
+
+  constructor(private konva: KonvaService, private controller: ControllerService, private adapter: AdapterService){}
 
   ngOnInit(){
     this.stage = new Stage({
@@ -37,10 +47,107 @@ export class SimulationSpaceComponent implements OnInit{
     this.transformer = new Transformer();
     this.layer.add(this.transformer);
     this.stage.add(this.layer);
+    let circle = new Konva.Group({
+      id: '0',
+        x: 300, 
+        y: 300, 
+        width: 130,
+        height: 25,
+        draggable: true,
+        name:"queue",
+        in:[],
+        out:[],
+    }); 
 
-    this.stage.on('click', (e:any) => {
+    circle.add(new Konva.Circle({
+        width: 130,
+        height: 25,
+        radius: 40,
+        fill: '#B9F3FC',
+        stroke: 'purple',
+        strokeWidth: 5
+    }));
 
-    })
+    circle.add(new Konva.Text({
+      text:'Q0',
+      fontSize: 18,
+      fontFamily: 'Calibri',
+      fill: '#000',
+      // width: 130,
+      // padding: 5,
+      align: 'center',
+      x: -10,
+      y: -10
+    }));
+
+    let tempLayer = new Konva.Layer();
+    this.setEvents(circle);
+    tempLayer.add(circle);
+    this.stage.add(tempLayer);
+    
+    let end = new Konva.Group({
+      id: '100',
+      x: 1250, 
+        y: 300, 
+        width: 130,
+        height: 25,
+        draggable: true,
+        name:"queue",
+        in:[],
+        out:[],
+      }); 
+      
+      end.add(new Konva.Circle({
+        width: 130,
+        height: 25,
+        radius: 40,
+        fill: '#B9F3FC',
+        stroke: 'purple',
+        strokeWidth: 5
+      }));
+      
+      end.add(new Konva.Text({
+        text:'Q_E',
+        fontSize: 18,
+        fontFamily: 'Calibri',
+        fill: '#000',
+        // width: 130,
+        // padding: 5,
+        align: 'center',
+        x: -15,
+        y: -10
+      }));
+      let tempLayer2 = new Konva.Layer();
+      this.setEvents(end);
+      tempLayer2.add(end);
+      this.stage.add(tempLayer2);
+
+      
+      this.subscription = timer(0, 200).pipe(
+        switchMap(() => this.controller.getUpdate())
+      ).subscribe(data => {
+        this.dtoStorage.push(data);
+        if(!this.replayStarted){
+          for(let i of data.rootGraph){
+            console.log("data changed", data);
+            let shape: any = this.stage.findOne("#" + i.id);
+  
+            if(shape.getAttrs().name == "machine")
+              shape.children[0].setAttr("fill", i.color);
+  
+            if(shape.getAttrs().name == "queue"){
+              shape.children[1].setAttr("text", 'Q' + shape.getAttrs().id+ "\n" +  i.numberOfProducts)
+              this.productsInQueue.set("Q" + shape.getAttrs().id, i.numberOfProducts);
+            }
+              console.log(this.productsInQueue);
+          }
+        }
+      })
+      
+
+      // this.stage.on('click', (e:any) => {
+
+    // })
 
 /* 
     this.targets = this.generateTargets();
@@ -78,6 +185,10 @@ export class SimulationSpaceComponent implements OnInit{
 
   }
 
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe();
+  }
+
   drawMachine(){
     let myShape = this.konva.machine()
     this.setEvents(myShape);
@@ -92,9 +203,48 @@ export class SimulationSpaceComponent implements OnInit{
     this.setEvents(myShape);
     console.log(myShape);
     console.log(this.stage)
+    // this.productsInQueue.push({queueName: myShape.getAttrs().name, numberOfProducts: 0})
+    // this.productsInQueue.push({queueName: "Q1", numberOfProducts: 0})
+    this.productsInQueue.set('Q' + myShape.getAttrs().id, 0);
+    console.log(this.productsInQueue)
     let lay = new Layer().add(myShape);
     this.stage.add(lay);
     console.log(this.stage.find('#' + myShape));
+  }
+
+  async replaySimulation(){
+    this.replayStarted = true;
+
+    let s: any = this.stage.findOne("#" + "100")
+    s.children[1].setAttr("text", "Q" + s.getAttrs().id);
+
+    for(let data of this.dtoStorage){
+      console.log("replay changed", data);
+      for(let i of data.rootGraph){
+        let shape: any = this.stage.findOne("#" + i.id);
+
+        if(shape.getAttrs().name == "machine")
+          shape.children[0].setAttr("fill", i.color);
+
+        if(shape.getAttrs().name == "queue"){
+          shape.children[1].setAttr("text", 'Q' + shape.getAttrs().id+ "\n" +  i.numberOfProducts)
+          this.productsInQueue.set("Q" + shape.getAttrs().id, i.numberOfProducts);
+        }
+          // console.log(this.productsInQueue);
+      }
+      await this.delay(200);
+    }
+
+  }
+
+  delay(ms: number) {
+    return new Promise( resolve => setTimeout(resolve, ms) );
+  }
+
+  incrementProduct(){
+    this.controller.incrementProduct().subscribe(data => {
+      this.numberOfProducts += 1;
+    })
   }
 
   setEvents(myShape: any){
@@ -131,7 +281,9 @@ export class SimulationSpaceComponent implements OnInit{
     temp = this.stage.findOne("#" + this.secondSelectedObject.getAttrs().id).getAttrs().in
     temp.push(this.firstSelectedObject);
 
-
+    this.shapes.set(this.firstSelectedObject.getAttrs().id, this.stage.findOne("#" + this.firstSelectedObject.getAttrs().id))
+    this.shapes.set(this.secondSelectedObject.getAttrs().id, this.stage.findOne("#" + this.secondSelectedObject.getAttrs().id))
+    console.log(this.shapes);
     // console.log(this.stage.findOne("#" + this.secondSelectedObject.getAttrs().id));
     console.log(line);
     this.layer.add(line);
@@ -149,7 +301,8 @@ export class SimulationSpaceComponent implements OnInit{
   }
 
   startSimulation(){
-    console.log(this.stage)
+    this.adapter.startSimulation(this.shapes, this.numberOfProducts);  
+    this.replayStarted = false;
   }
 
   drawLine(){

@@ -1,4 +1,47 @@
-<section>
+
+
+  <div id="control_container_L" class="white_board--controls left mat-elevation-z8">
+      
+    <button mat-icon-button (click)="drawMachine()"
+     matTooltip="Machine" matTooltipPosition="right" aria-label="Brush">
+      <mat-icon>router</mat-icon>
+    </button>
+    
+    
+    <button mat-icon-button (click)="drawQueue()"
+            matTooltip="Queue" matTooltipPosition="right" aria-label="Eraser">
+        <mat-icon>group_add</mat-icon>
+    </button>
+    
+    <button mat-icon-button (click)="drawLine()"
+          matTooltip="Line" matTooltipPosition="right" aria-label="Clone"
+          >
+    <mat-icon>timeline</mat-icon>
+    </button>
+
+    <button mat-icon-button (click)="incrementProduct()"
+            matTooltip="add product" matTooltipPosition="right" aria-label="Clone"
+            >
+            <mat-icon>add_circle_outline</mat-icon>
+    </button>
+
+    <button  mat-icon-button matTooltip="start" matTooltipPosition="right" aria-label="Delete" (click)="startSimulation()">
+        <mat-icon>play_circle_outline</mat-icon>
+    </button>
+
+    <button mat-icon-button (click)="replaySimulation()"
+             matTooltip="redo" matTooltipPosition="right" aria-label="Brush">
+        <mat-icon>replay</mat-icon>
+    </button>
+
+  </div>
+
+
+
+  <div class="products"> Number of Products: {{numberOfProducts}}</div>
+
+<!--  -->
+<!-- <section>
     <div class="example-button-row">
       <div class="example-flex-container">
             <div class="example-button-container">
@@ -12,18 +55,51 @@
                 </button>
             </div>
             <div class="start-simulation">
-                <button mat-raised-button color="primary" (click)="startSimulation()">
+                <button mat-raised-button color="accent" (click)="startSimulation()">
                     Start Simulation
                 </button>
             </div>
             <div class="start-simulation">
-                <button mat-raised-button color="primary" (click)="drawLine()">
+                <button mat-raised-button color="accent" (click)="drawLine()">
                     Line mode
                 </button>
             </div>
-
+            <div class="start-simulation">
+                <button mat-raised-button color="warn" (click)="replaySimulation()">
+                    Replay Simulation
+                </button>
+            </div>
+            <div class="addProduct">
+                <button mat-raised-button color="primary" (click)="incrementProduct()">
+                    Increment products in stock
+                </button>
+            </div>
         </div>
     </div>
-</section>
+</section> -->
 
-<div id="container"></div>
+
+<div id="container">
+    
+</div>
+
+<!-- <div *ngFor="let i of productsInQueue | keyvalue">
+    {{i.key}} {{i.value}}
+    <mat-divider></mat-divider>
+</div>   -->
+
+<!-- 
+<table mat-table [dataSource]="productsInQueue" class="table">
+    <ng-container matColumnDef="queueName">
+        <th mat-header-cell *matHeaderCellDef> queue name </th>
+        <td mat-cell *ngFor="let i of productsInQueue"> {{i.queueName}} </td>
+    </ng-container>
+    <ng-container matColumnDef="numberOfProducts">
+        <th mat-header-cell *matHeaderCellDef> number of products</th>
+        <td mat-cell *matCellDef="let q"> {{q.numberOfProducts}} </td>
+    </ng-container>
+
+
+    <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
+    <tr mat-row *matRowDef="let myRowData; columns: columnsToDisplay"></tr>
+</table> -->
