@@ -29,6 +29,7 @@ public class Machine extends Element implements Runnable{
 
     public void machineNotifyFree(){
 //        CareTaker.getInstance().addSnapshot();
+        this.setColor("grey");
         for(Queue q: inQueues) {
             q.addFreeMachine(this.getId());
         }
@@ -40,6 +41,7 @@ public class Machine extends Element implements Runnable{
         machineNotifyBusy();
         Thread thread = new Thread(this::run);
         thread.start();
+        this.setColor(product.getColor());
 //        CareTaker.getInstance().addSnapshot();
     }
 
