@@ -16,8 +16,8 @@ export class SimulationSpaceComponent implements OnInit{
   transformer!: Transformer;
 
   isLineMode = false;
-  firstSelectedObject!: number[];
-  secondSelectedObject!: number[];
+  firstSelectedObject!: any;
+  secondSelectedObject!: any;
   isFirstNotNull = false;
   myArrow!:any;
   targets!:any;
@@ -90,18 +90,21 @@ export class SimulationSpaceComponent implements OnInit{
     let myShape = this.konva.queue();
     this.shapes.set(myShape.getAttr("id"), myShape);
     this.setEvents(myShape);
+    console.log(myShape);
+    console.log(this.stage)
     let lay = new Layer().add(myShape);
     this.stage.add(lay);
+    console.log(this.stage.find('#' + myShape));
   }
 
   setEvents(myShape: any){
     myShape.on('click', (e: any) => {
       if (this.isLineMode && !this.isFirstNotNull){
-        this.firstSelectedObject = [myShape.getAttr("x"), myShape.getAttr("y")]
+        this.firstSelectedObject = myShape;
         console.log("first object selected ", this.firstSelectedObject);
         this.isFirstNotNull = true;
-      }else if (this.isLineMode && this.isFirstNotNull){
-        this.secondSelectedObject = [myShape.getAttr("x"), myShape.getAttr("y")]
+      }else if (this.isLineMode && this.isFirstNotNull && myShape != this.firstSelectedObject){
+        this.secondSelectedObject = myShape;
         console.log("second object selected ", this.secondSelectedObject);
         this.isFirstNotNull = false;
         this.myArrow = this.drawArrow();
@@ -110,18 +113,24 @@ export class SimulationSpaceComponent implements OnInit{
   }
 
   drawArrow() { 
-    const dx = this.firstSelectedObject[0] - this.secondSelectedObject[1];
-    const dy = this.firstSelectedObject[1] - this.secondSelectedObject[1];
-    let radius = 20;
+    const dx = this.secondSelectedObject.getAttrs().x - this.firstSelectedObject.getAttrs().x;
+    const dy = this.secondSelectedObject.getAttrs().y - this.firstSelectedObject.getAttrs().y;
+    let radius = 40;
     let angle = Math.atan2(-dy, dx);
     let line = new Konva.Arrow({
-    points:[this.firstSelectedObject[0] + -radius * Math.cos(angle + Math.PI),
-        this.firstSelectedObject[1] + radius * Math.sin(angle + Math.PI),
-        this.secondSelectedObject[0] + -radius * Math.cos(angle),
-        this.secondSelectedObject[1] + radius * Math.sin(angle)],
+    points:[this.firstSelectedObject.getAttrs().x + -radius * Math.cos(angle + Math.PI)*1.5,
+        this.firstSelectedObject.getAttrs().y + radius * Math.sin(angle + Math.PI)*1.5,
+        this.secondSelectedObject.getAttrs().x + -radius * Math.cos(angle)*1.5,
+        this.secondSelectedObject.getAttrs().y + radius * Math.sin(angle)*1.5],
       stroke: 'black',
       fill: 'black',
+      from: this.firstSelectedObject,
+      to: this.secondSelectedObject 
     })
+    this.stage.findOne("#" + this.firstSelectedObject.getAttrs().id).setAttr("out", line);
+    this.stage.findOne("#" + this.secondSelectedObject.getAttrs().id).setAttr("in", line);
+    // console.log(this.stage.findOne("#" + this.secondSelectedObject.getAttrs().id));
+    console.log(line);
     this.layer.add(line);
   }
 
