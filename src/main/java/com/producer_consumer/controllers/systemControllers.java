@@ -1,10 +1,15 @@
 package com.producer_consumer.controllers;
 
 import com.producer_consumer.DTOs.Dto;
+import com.producer_consumer.models.Element;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 
 @RestController
 public class systemControllers {
@@ -19,8 +24,19 @@ public class systemControllers {
 //    public void resimulate(){
 //
 //    }
-//    @GetMapping("/get_changes")
-//    public List<Object> getChanges(){
-//
-//    }
+    @GetMapping("/get_changes")
+    public Dto getChanges(){
+        SimulatorService simulatorService = SimulatorService.getInstance();
+        List<Dto> dtos = new ArrayList<>();
+        for(Map.Entry<String, Element> entry : simulatorService.getElements().entrySet()){
+            Dto dto = new Dto();
+            dto.id = entry.getValue().getId();
+            dto.color = entry.getValue().getColor();
+            dto.numberOfProducts = entry.getValue().getProducts().size();
+            dtos.add(dto);
+        }
+        Dto dtoo = new Dto();
+        dtoo.rootGraph = dtos;
+        return dtoo;
+    }
 }

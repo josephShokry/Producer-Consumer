@@ -9,6 +9,7 @@ import com.producer_consumer.snapshot.CareTaker;
 import com.producer_consumer.snapshot.Snapshot;
 import lombok.Getter;
 import lombok.Setter;
+import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
 import java.util.List;

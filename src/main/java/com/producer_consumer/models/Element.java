@@ -5,6 +5,9 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Getter
 @Setter
 @AllArgsConstructor
@@ -14,6 +17,7 @@ public class Element {
     private int y;
     private String color;
     private String text;
+    private List<Product> products = new ArrayList<>();
 
     public Element(Dto dto) {
         this.id = dto.id;
@@ -23,4 +27,13 @@ public class Element {
         this.text = dto.text;
 
     }
+//    public Dto toDto(){
+//        Dto dto = new Dto();
+//        dto.id=this.id ;
+//        dto.x=this.x ;
+//        dto.y=this.y ;
+//        dto.color=this.color ;
+//        dto.text=this.text ;
+//        return dto;
+//    }
 }

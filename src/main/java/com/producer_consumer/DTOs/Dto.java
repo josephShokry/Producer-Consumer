@@ -5,6 +5,7 @@ import java.util.List;
 public class Dto {
     public int x;
     public int y;
+    public int numberOfProducts;
     public String type;
     public String color;
     public String id;

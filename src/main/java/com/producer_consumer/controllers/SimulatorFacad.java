@@ -17,4 +17,8 @@ public class SimulatorFacad {
         simulatorService.makeRelations();
         simulatorService.runSimulation();
     }
+
+    public SimulatorService getSimulatorService() {
+        return simulatorService;
+    }
 }

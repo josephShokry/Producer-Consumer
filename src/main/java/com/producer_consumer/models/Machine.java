@@ -28,19 +28,19 @@ public class Machine extends Element implements Runnable{
     }
 
     public void machineNotifyFree(){
-        CareTaker.getInstance().addSnapshot();
+//        CareTaker.getInstance().addSnapshot();
         for(Queue q: inQueues) {
             q.addFreeMachine(this.getId());
         }
     }
 
     public synchronized void setProduct(Product product) {
-        CareTaker.getInstance().addSnapshot();
+//        CareTaker.getInstance().addSnapshot();
         this.product = product;
         machineNotifyBusy();
         Thread thread = new Thread(this::run);
         thread.start();
-        CareTaker.getInstance().addSnapshot();
+//        CareTaker.getInstance().addSnapshot();
     }
 
     public void machineNotifyBusy(){
@@ -67,4 +67,15 @@ public class Machine extends Element implements Runnable{
                 "product=" + product +
                 '}';
     }
+//    @Override
+//    public Dto toDto(){
+//        Dto dto = new Dto();
+//        dto.id= super.getId();
+//        dto.x= super.getX();
+//        dto.y= super.getY();
+//        dto.color= super.getColor();
+//        dto.text= super.getText();
+//        dto.product = this.product.getColor();
+//        return dto;
+//    }
 }

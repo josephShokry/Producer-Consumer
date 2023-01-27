@@ -15,7 +15,7 @@ import java.util.List;
 @Getter
 @Setter
 public class Queue extends Element implements Runnable{
-    private List<Product> products = new ArrayList<>();
+//    private List<Product> products = new ArrayList<>();
     private Map<String, Machine> outMachines = new HashMap<>();
     private Map<String, Machine> freeMachines = new HashMap<>();
     private Thread thread;
@@ -32,8 +32,8 @@ public class Queue extends Element implements Runnable{
 
 
     public void addToProducts(Product product){
-        products.add(product);
-        if(products.size()==1){
+        super.getProducts().add(product);
+        if(super.getProducts().size()==1){
             this.thread = new Thread(this::run);
             thread.start();
         }
@@ -49,18 +49,18 @@ public class Queue extends Element implements Runnable{
     @Override
     public void run() {
         System.out.println(thread + " has entered");
-        while(!products.isEmpty()) {
-            System.out.println(thread + " " + products.isEmpty() + " " + products.size() + " " + freeMachines.size() + " " + this.getId());
+        while(!super.getProducts().isEmpty()) {
+            System.out.println(thread + " " + super.getProducts().isEmpty() + " " + super.getProducts().size() + " " + freeMachines.size() + " " + this.getId());
             try {
                 Thread.sleep(1000);
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }
             if (!freeMachines.isEmpty()) {
-                CareTaker.getInstance().addSnapshot();
-                freeMachines.entrySet().iterator().next().getValue().setProduct(products.get(0));
-                products.remove(0);
-                CareTaker.getInstance().addSnapshot();
+//                CareTaker.getInstance().addSnapshot();
+                freeMachines.entrySet().iterator().next().getValue().setProduct(super.getProducts().get(0));
+                super.getProducts().remove(0);
+//                CareTaker.getInstance().addSnapshot();
             }
         }
         System.out.println(thread + " has terminated");
@@ -69,8 +69,24 @@ public class Queue extends Element implements Runnable{
     @Override
     public String toString() {
         return "Queue{" +
-                "products=" + products +
+                "products=" + super.getProducts() +
                 ", freeMachines=" + freeMachines +
                 '}';
     }
+//    @Override
+//    public Dto toDto(){
+//        Dto dto = new Dto();
+//        dto.id= super.getId();
+//        dto.x= super.getX();
+//        dto.y= super.getY();
+//        dto.color= super.getColor();
+//        dto.text= super.getText();
+//        dto.freeMachines = (List<Machine>) this.freeMachines.values();
+//        List<String> prods = new ArrayList<>();
+//        for(Product p :this.products){
+//            prods.add(p.getColor());
+//        }
+//        dto.products = prods;
+//        return dto;
+//    }
 }

@@ -6,9 +6,14 @@
   <component name="ChangeListManager">
     <list default="true" id="ced9700f-bd94-4a69-b3ae-fd11e3bece62" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/producer_consumer/DTOs/Dto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/producer_consumer/DTOs/Dto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/producer_consumer/controllers/SimulatorFacad.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/producer_consumer/controllers/SimulatorFacad.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/producer_consumer/controllers/SimulatorService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/producer_consumer/controllers/SimulatorService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/producer_consumer/controllers/systemControllers.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/producer_consumer/controllers/systemControllers.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/producer_consumer/models/Element.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/producer_consumer/models/Element.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/producer_consumer/models/Machine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/producer_consumer/models/Machine.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/producer_consumer/models/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/producer_consumer/models/Product.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/producer_consumer/models/Queue.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/producer_consumer/models/Queue.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/producer_consumer/snapshot/CareTaker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/producer_consumer/snapshot/CareTaker.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/producer_consumer/snapshot/Snapshot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/producer_consumer/snapshot/Snapshot.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -113,13 +118,13 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/producer_consumer/controllers/SimulatorService.java</url>
-          <line>71</line>
+          <line>72</line>
           <option name="timeStamp" value="7" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/producer_consumer/controllers/SimulatorService.java</url>
-          <line>62</line>
-          <option name="timeStamp" value="9" />
+          <line>63</line>
+          <option name="timeStamp" value="10" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
