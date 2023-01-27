@@ -110,28 +110,42 @@ export class SimulationSpaceComponent implements OnInit{
         this.myArrow = this.drawArrow();
       }
     })
+
+    myShape.on("dragmove", (e:any) => {
+
+    })
+
   }
 
   drawArrow() { 
-    const dx = this.secondSelectedObject.getAttrs().x - this.firstSelectedObject.getAttrs().x;
-    const dy = this.secondSelectedObject.getAttrs().y - this.firstSelectedObject.getAttrs().y;
-    let radius = 40;
-    let angle = Math.atan2(-dy, dx);
     let line = new Konva.Arrow({
-    points:[this.firstSelectedObject.getAttrs().x + -radius * Math.cos(angle + Math.PI)*1.5,
-        this.firstSelectedObject.getAttrs().y + radius * Math.sin(angle + Math.PI)*1.5,
-        this.secondSelectedObject.getAttrs().x + -radius * Math.cos(angle)*1.5,
-        this.secondSelectedObject.getAttrs().y + radius * Math.sin(angle)*1.5],
+    points: this.calculateLine(this.firstSelectedObject, this.secondSelectedObject),
       stroke: 'black',
       fill: 'black',
       from: this.firstSelectedObject,
       to: this.secondSelectedObject 
     })
-    this.stage.findOne("#" + this.firstSelectedObject.getAttrs().id).setAttr("out", line);
-    this.stage.findOne("#" + this.secondSelectedObject.getAttrs().id).setAttr("in", line);
+    let temp: any[] = this.stage.findOne("#" + this.firstSelectedObject.getAttrs().id).getAttrs().out;
+    temp.push(this.secondSelectedObject);
+
+    temp = this.stage.findOne("#" + this.secondSelectedObject.getAttrs().id).getAttrs().in
+    temp.push(this.firstSelectedObject);
+
+
     // console.log(this.stage.findOne("#" + this.secondSelectedObject.getAttrs().id));
     console.log(line);
     this.layer.add(line);
+  }
+
+  calculateLine(from:any, to:any){
+    const dx = to.getAttrs().x - from.getAttrs().x;
+    const dy = to.getAttrs().y - from.getAttrs().y;
+    let radius = 40;
+    let angle = Math.atan2(-dy, dx);
+    return [this.firstSelectedObject.getAttrs().x + -radius * Math.cos(angle + Math.PI)*1.5,
+      this.firstSelectedObject.getAttrs().y + radius * Math.sin(angle + Math.PI)*1.5,
+      this.secondSelectedObject.getAttrs().x + -radius * Math.cos(angle)*1.5,
+      this.secondSelectedObject.getAttrs().y + radius * Math.sin(angle)*1.5]
   }
 
   startSimulation(){

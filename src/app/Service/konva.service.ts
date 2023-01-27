@@ -61,8 +61,8 @@ export class KonvaService {
         width: 130,
         height: 25,
         draggable: true,
-        to:"test",
-        from:"test2"
+        in:[],
+        out:[],
     }); 
 
     circle.add(new Konva.Circle({
