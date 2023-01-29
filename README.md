@@ -30,10 +30,6 @@ program to simulate this production line as a queuing network.
 - Producer-consumer design pattern
 
 ### the demo
-![Project Demo](readmeData/producer-consumer%20demo.mp4)
-
-
-
 https://user-images.githubusercontent.com/96320048/215320441-474453da-f381-4694-be33-214b8b2e66b2.mp4
 
 
