@@ -1,7 +1,6 @@
 package com.producer_consumer.models;
 
 import com.producer_consumer.DTOs.Dto;
-import com.producer_consumer.snapshot.CareTaker;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -28,7 +27,6 @@ public class Machine extends Element implements Runnable{
     }
 
     public void machineNotifyFree(){
-//        CareTaker.getInstance().addSnapshot();
         this.setColor("#ddd");
         for(Queue q: inQueues) {
             q.addFreeMachine(this.getId());
@@ -36,13 +34,11 @@ public class Machine extends Element implements Runnable{
     }
 
     public synchronized void setProduct(Product product) {
-//        CareTaker.getInstance().addSnapshot();
         this.product = product;
         machineNotifyBusy();
         Thread thread = new Thread(this::run);
         thread.start();
         this.setColor(product.getColor());
-//        CareTaker.getInstance().addSnapshot();
     }
 
     public void machineNotifyBusy(){
@@ -69,15 +65,4 @@ public class Machine extends Element implements Runnable{
                 "product=" + product +
                 '}';
     }
-//    @Override
-//    public Dto toDto(){
-//        Dto dto = new Dto();
-//        dto.id= super.getId();
-//        dto.x= super.getX();
-//        dto.y= super.getY();
-//        dto.color= super.getColor();
-//        dto.text= super.getText();
-//        dto.product = this.product.getColor();
-//        return dto;
-//    }
 }

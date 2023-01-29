@@ -27,13 +27,4 @@ public class Element {
         this.text = dto.text;
 
     }
-//    public Dto toDto(){
-//        Dto dto = new Dto();
-//        dto.id=this.id ;
-//        dto.x=this.x ;
-//        dto.y=this.y ;
-//        dto.color=this.color ;
-//        dto.text=this.text ;
-//        return dto;
-//    }
 }

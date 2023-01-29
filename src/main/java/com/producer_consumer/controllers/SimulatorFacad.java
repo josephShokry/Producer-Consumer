@@ -1,7 +1,6 @@
 package com.producer_consumer.controllers;
 
 import com.producer_consumer.DTOs.Dto;
-
 import java.util.List;
 
 public class SimulatorFacad {
@@ -10,7 +9,6 @@ public class SimulatorFacad {
         simulatorService = SimulatorService.getInstance();
         simulatorService.setRootGraph(dtos);
         simulatorService.setProductsNumberInStock(productsNumberInStock);
-//        simulatorService = new SimulatorService(dtos, productsNumberInStock);
     }
     public void startSimulation() throws InterruptedException {
         simulatorService.buildElements();

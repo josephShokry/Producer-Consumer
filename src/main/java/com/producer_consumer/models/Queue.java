@@ -1,27 +1,19 @@
 package com.producer_consumer.models;
 
 import com.producer_consumer.DTOs.Dto;
-import com.producer_consumer.snapshot.CareTaker;
 import lombok.Getter;
 import lombok.Setter;
-
-import java.sql.SQLOutput;
 import java.util.HashMap;
 import java.util.Map;
-
-import java.util.ArrayList;
-import java.util.List;
 
 @Getter
 @Setter
 public class Queue extends Element implements Runnable{
-//    private List<Product> products = new ArrayList<>();
     private Map<String, Machine> outMachines = new HashMap<>();
     private Map<String, Machine> freeMachines = new HashMap<>();
     private Thread thread;
     public Queue(Dto dto) {
         super(dto);
-        System.out.println(thread);
     }
     public void addFreeMachine(String machineID){
         freeMachines.put(machineID, outMachines.get(machineID));
@@ -48,22 +40,17 @@ public class Queue extends Element implements Runnable{
 
     @Override
     public void run() {
-        System.out.println(thread + " has entered");
         while(!super.getProducts().isEmpty()) {
-            System.out.println(thread + " " + super.getProducts().isEmpty() + " " + super.getProducts().size() + " " + freeMachines.size() + " " + this.getId());
             try {
                 Thread.sleep(1000);
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }
             if (!freeMachines.isEmpty()) {
-//                CareTaker.getInstance().addSnapshot();
                 freeMachines.entrySet().iterator().next().getValue().setProduct(super.getProducts().get(0));
                 super.getProducts().remove(0);
-//                CareTaker.getInstance().addSnapshot();
             }
         }
-        System.out.println(thread + " has terminated");
     }
 
     @Override

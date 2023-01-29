@@ -6,11 +6,8 @@ import com.producer_consumer.models.Machine;
 import com.producer_consumer.models.Product;
 import com.producer_consumer.models.Queue;
 import com.producer_consumer.snapshot.CareTaker;
-import com.producer_consumer.snapshot.Snapshot;
 import lombok.Getter;
 import lombok.Setter;
-import org.springframework.stereotype.Service;
-
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -74,7 +71,4 @@ public class SimulatorService {
         }
 
     }
-
-    // snapshot handling
-
 }

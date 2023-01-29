@@ -2,8 +2,6 @@ package com.producer_consumer.models;
 
 import lombok.Getter;
 
-import java.util.List;
-
 @Getter
 public class Product {
     private String color;
