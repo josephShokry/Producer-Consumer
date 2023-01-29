@@ -7,11 +7,12 @@ import java.util.List;
 @Getter
 public class Product {
     private String color;
-    private static String[] colorss = {"red","green","yellow","pink","blue","#ffba00"};
+    private static String[] colorss = {"red","green","yellow","pink","blue","#ffba00", "orange", "purple", "#224B0C" ,"#CE49BF"};
+    private static int index = 0;
     public Product() {
         int min = 0;
         int max = colorss.length-1;
-        int randomInd = (int)Math.floor(Math.random() *(max - min + 1) + min) % 6;
+        int randomInd = (index++) % 10;
         this.color = colorss[randomInd];
     }
 }

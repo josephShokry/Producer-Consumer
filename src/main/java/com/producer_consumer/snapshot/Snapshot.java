@@ -17,13 +17,7 @@ public class Snapshot {
     private String elementtttttt;
 
     public Snapshot(Map<String,Element> elements, int productsNumberInStock, List<Dto> rootGraph){
-//        this.elements = new HashMap<>();
         this.elementtttttt = elements.toString();
-//        for(Map.Entry<String,Element> entry : elements.entrySet()){
-//            this.elements.put(entry.getKey(),entry.getValue());
-//        }
-//        this.productsNumberInStock = productsNumberInStock;
-//        this.rootGraph = rootGraph;
         dtos = new ArrayList<>();
         for(Map.Entry<String,Element> entry : elements.entrySet()){
             Dto dto = new Dto();

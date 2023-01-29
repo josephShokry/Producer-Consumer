@@ -23,11 +23,6 @@ public class SimulatorService {
     private static SimulatorService simulatorService = null;
     private int productsNumberInStock;
     private List<Dto> rootGraph;
-//    public SimulatorService(List<Dto> rootGraph, int productsNumberInStock){
-//        this.rootGraph = rootGraph;
-//        this.productsNumberInStock = productsNumberInStock;
-////        if(simulatorService == null) simulatorService = this;
-//    }
 
     public static SimulatorService getInstance(){
         if (simulatorService == null){
@@ -77,11 +72,7 @@ public class SimulatorService {
 
             CareTaker.getInstance().addSnapshot();
         }
-//        while(((Queue)elements.get("100")).getProducts().size() != allCounts){
-//            Thread.sleep(1000);
-//        }
-//        CareTaker.getInstance().addSnapshot();
-//        System.out.println("end");
+
     }
 
     // snapshot handling

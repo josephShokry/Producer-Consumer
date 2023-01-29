@@ -23,7 +23,7 @@ public class Element {
         this.id = dto.id;
         this.x = dto.x;
         this.y = dto.y;
-        this.color = "grey";
+        this.color = "#ddd";
         this.text = dto.text;
 
     }

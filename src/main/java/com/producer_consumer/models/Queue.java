@@ -73,20 +73,5 @@ public class Queue extends Element implements Runnable{
                 ", freeMachines=" + freeMachines +
                 '}';
     }
-//    @Override
-//    public Dto toDto(){
-//        Dto dto = new Dto();
-//        dto.id= super.getId();
-//        dto.x= super.getX();
-//        dto.y= super.getY();
-//        dto.color= super.getColor();
-//        dto.text= super.getText();
-//        dto.freeMachines = (List<Machine>) this.freeMachines.values();
-//        List<String> prods = new ArrayList<>();
-//        for(Product p :this.products){
-//            prods.add(p.getColor());
-//        }
-//        dto.products = prods;
-//        return dto;
-//    }
+
 }

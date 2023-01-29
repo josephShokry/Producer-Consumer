@@ -29,7 +29,7 @@ public class Machine extends Element implements Runnable{
 
     public void machineNotifyFree(){
 //        CareTaker.getInstance().addSnapshot();
-        this.setColor("grey");
+        this.setColor("#ddd");
         for(Queue q: inQueues) {
             q.addFreeMachine(this.getId());
         }

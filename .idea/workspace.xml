@@ -7,7 +7,12 @@
     <list default="true" id="ced9700f-bd94-4a69-b3ae-fd11e3bece62" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/producer_consumer/controllers/SimulatorService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/producer_consumer/controllers/SimulatorService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/producer_consumer/controllers/systemControllers.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/producer_consumer/controllers/systemControllers.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/producer_consumer/models/Element.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/producer_consumer/models/Element.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/producer_consumer/models/Machine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/producer_consumer/models/Machine.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/producer_consumer/models/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/producer_consumer/models/Product.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/producer_consumer/models/Queue.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/producer_consumer/models/Queue.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/producer_consumer/snapshot/CareTaker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/producer_consumer/snapshot/CareTaker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/producer_consumer/snapshot/Snapshot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/producer_consumer/snapshot/Snapshot.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,14 +45,15 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/colleage/5th semester/programing2/my work/lab 5/backend/Producer-Consumer&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "D:/colleage/5th semester/programing2/my work/lab 5/backend/Producer-Consumer",
+    "spring.configuration.checksum": "4c44b0011c9c00f486a2d65f1293de8f"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="com.producer_consumer" />
@@ -89,6 +95,7 @@
       <option name="presentableId" value="Default" />
       <updated>1674755038539</updated>
       <workItem from="1674755040010" duration="358000" />
+      <workItem from="1674849516826" duration="870000" />
     </task>
     <servers />
   </component>
