@@ -62,7 +62,7 @@ public class SimulatorService {
         int allCounts = productsNumberInStock;
         while(true){
             int min = 1;
-            int max = 10;
+            int max = 5;
             int randomtime = (int)Math.floor(Math.random() *(max - min + 1) + min);
             TimeUnit.SECONDS.sleep(randomtime);
             if(productsNumberInStock > 0){
