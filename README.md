@@ -1,6 +1,6 @@
 # Producer-Consumer-back-end
 ## This project simulate Assembly Machine production
-
+![Screenshot](https://user-images.githubusercontent.com/96181216/215466956-3e3b20ac-35fb-4b1f-9c63-33c9baff2709.png)
 Assignment #5: Producer/Consumer Simulation Program (CSED25 Alexandria University)
 
 ### project objectives
