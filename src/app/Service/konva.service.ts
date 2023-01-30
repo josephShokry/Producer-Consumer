@@ -90,20 +90,7 @@ export class KonvaService {
 
     let arr;
 
-    // circle.on('mouseup', (e: any) => {
-    //   if(this.isLineMode){
-    //   }
-    // })
     this.myId = (Number(this.myId) + 1).toString();
-    // let temp2 = new Konva.Layer();
-    // temp2.setAttr("id", circle.id);
-    // temp2.on('mouesdown', (e: any) => {
-    //   if(this.isLineMode){
-    //     this.firstSelectedObject = circle.getAttr("id");
-    //     console.log("first object selected ", this.firstSelectedObject);
-    //   }
-    // })
-    // temp2.add(circle);
     let myLayer = new Konva.Layer().add(circle);
     return circle;
   }

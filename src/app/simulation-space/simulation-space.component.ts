@@ -143,45 +143,7 @@ export class SimulationSpaceComponent implements OnInit, OnDestroy{
           }
         }
       })
-      
-
-      // this.stage.on('click', (e:any) => {
-
-    // })
-
-/* 
-    this.targets = this.generateTargets();
-    this.connectors = this.generateConnectors();
-
-  // generate nodes for the app
-  this.connectors.forEach((connect:any) => {
-    let line = new Konva.Arrow({
-      stroke: 'black',
-      id: connect.id,
-      fill: 'black',
-    });
-    layer.add(line);
-  });
-
-  targets.forEach((target) => {
-    let node = new Konva.Circle({
-      id: target.id,
-      fill: Konva.Util.getRandomColor(),
-      radius: 20 + Math.random() * 20,
-      shadowBlur: 10,
-      draggable: true,
-    });
-    layer.add(node);
-
-    node.on('dragmove', () => {
-      // mutate the state
-      target.x = node.x();
-      target.y = node.y();
-
-      // update nodes from the new state
-      updateObjects();
-    });
-  }); */
+    
 
   }
 
@@ -203,8 +165,6 @@ export class SimulationSpaceComponent implements OnInit, OnDestroy{
     this.setEvents(myShape);
     console.log(myShape);
     console.log(this.stage)
-    // this.productsInQueue.push({queueName: myShape.getAttrs().name, numberOfProducts: 0})
-    // this.productsInQueue.push({queueName: "Q1", numberOfProducts: 0})
     this.productsInQueue.set('Q' + myShape.getAttrs().id, 0);
     console.log(this.productsInQueue)
     let lay = new Layer().add(myShape);
@@ -308,84 +268,5 @@ export class SimulationSpaceComponent implements OnInit, OnDestroy{
   drawLine(){
     this.isLineMode = true;
   }
-
-  ///////////////////////////////////////////////////////////////////////////////////////////
-
-  // function to generate a list of "targets" (circles)
-  generateTargets() {
-    let number = 10;
-    let result = [];
-    while (result.length < number) {
-      result.push({
-        id: 'target-' + result.length,
-        x: this.stage.width() * Math.random(),
-        y: this.stage.height() * Math.random(),
-      });
-    }
-    return result;
-  }
-
   
-
-  // function to generate arrows between targets
-  generateConnectors() {
-    let number = 10;
-    let result = [];
-    while (result.length < number) {
-      let from = 'target-' + Math.floor(Math.random() * this.targets.length);
-      let to = 'target-' + Math.floor(Math.random() * this.targets.length);
-      if (from === to) {
-        continue;
-      }
-      result.push({
-        id: 'connector-' + result.length,
-        from: from,
-        to: to,
-      });
-    }
-    return result;
-  }
-
-  getConnectorPoints(from: { x: number; y: number; }, to: { x: number; y: number; }) {
-    const dx = to.x - from.x;
-    const dy = to.y - from.y;
-    let angle = Math.atan2(-dy, dx);
-
-    const radius = 50;
-
-    return [
-      from.x + -radius * Math.cos(angle + Math.PI),
-      from.y + radius * Math.sin(angle + Math.PI),
-      to.x + -radius * Math.cos(angle),
-      to.y + radius * Math.sin(angle),
-    ];
-  }
-
-
-  // update all objects on the canvas from the state of the app
-  updateObjects() {
-    this.targets.forEach((target: any) => {
-      let node = this.layer.findOne('#' + target.id);
-      node.x(target.x);
-      node.y(target.y);
-    });
-    this.connectors.forEach((connect:any) => {
-      let line = this.layer.findOne('#' + connect.id);
-      let fromNode = this.layer.findOne('#' + connect.from);
-      let toNode = this.layer.findOne('#' + connect.to);
-
-      const points = this.getConnectorPoints(
-        fromNode.position(),
-        toNode.position()
-      );
-      // line.points(points);
-      // line.setAttr()
-    });
-  }
-
-
-
-  // updateObjects();
-
-
 }
