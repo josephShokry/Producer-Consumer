@@ -13,7 +13,8 @@ An assembly line that produces different products consists of different processi
 responsible for processing the product at different stages and queue Qs to handle product movement
 between different processing stages (see figure below). In this assignment, we will develop a simulation
 program to simulate this production line as a queuing network.
-![img.png](readmeData/img.png)
+![img](https://user-images.githubusercontent.com/96181216/215475359-806d9422-fe6e-4d4a-bb99-3e058cecfea5.png)
+
 
 ### System features
 - Users add graphically as many as they want queues and machines. 
